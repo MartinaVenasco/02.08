@@ -8,11 +8,12 @@ const stateDefaultValue = {
   list: [],
   counter: 1,
   isError: false,
+ 
 };
 
 const reducer = (state, action) => {
   let { type, payload } = action;
-  let { list, isError, counter } = state;
+  let { list, isError, counter} = state;
 
   // Switch
   switch (type) {
@@ -20,11 +21,13 @@ const reducer = (state, action) => {
       console.log(task);
       if (!task.todo || !task.day || !task.hour || !task.descrizione) {
         isError = true;
+       
       } else {
         isError = false;
         let id = counter;
         counter++;
         list = [...list, { ...task, id: id }];
+       
       }
     }
  // eslint-disable-next-line
@@ -40,6 +43,7 @@ const reducer = (state, action) => {
     list: list,
     isError: isError,
     counter: counter,
+    
   };
 };
 
@@ -53,8 +57,10 @@ const App = () => {
     console.log(task);
   };
 
-  const handleAddDispatch = () => {
-    dispatch({ type: "AddTask" });
+
+  const handleAddDispatch = (e) => {
+    dispatch({ type: "AddTask"});
+
   };
 
   const handleDeleteDispatch = (e) => {
@@ -65,19 +71,22 @@ const App = () => {
   };
 
   return (
-    <div className="container">
+    <div className="main-container">
+    
       <Form state={state} onChange={handleInputChange}>
-        <Button onClick={handleAddDispatch}>Aggiungi</Button>
+        <Button onClick={handleAddDispatch} >Aggiungi</Button>
       </Form>
 
       {state.list.map((obj, index) => {
         return (
+          <div className="list-task">
+          <div className="task">
           <Todo
             key={"task" + index}
             todoData={obj}
             onClick={handleDeleteDispatch}
           />
-        );
+       </div></div> );
       })}
     </div>
   );

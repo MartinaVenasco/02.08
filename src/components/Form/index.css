@@ -1,24 +1,24 @@
-
-
-
-body{ 
-  box-sizing: border-box;
+body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin: 0;
   padding: 0;
   color: #6a6a6a;
   background-image: url("../../background.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
+  
 }
 
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  margin-top: 80px;
-
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 100px auto;
+  gap: 90px;
+  justify-content:center;
+  width: 100vh;
 }
 
-.task-input {
+.input {
   -webkit-box-shadow: 0px 2px 22px 0px rgba(159, 244, 204, 0.92);
   -moz-box-shadow: 0px 2px 22px 0px rgba(171, 235, 205, 0.92);
   box-shadow: 0px 2px 22px 0px rgba(181, 221, 202, 0.92);
@@ -30,13 +30,16 @@ body{
   margin: 0 auto;
   background-color: #e2e3e4;
   margin-bottom: 30px;
+  width: 500px;
 }
 .time-section {
   display: flex;
-
+  gap: 10px;
   justify-content: space-between;
 }
-.descrizione {height: 100px;}
+.descrizione {
+  height: 100px;
+}
 
 input {
   height: 40px;
@@ -52,41 +55,61 @@ input {
   padding: 8px;
 }
 
-.btn {
+.btn-add,
+.btn-delete {
   padding: 16px;
-  width: 200px;
+  width: 50px;
   border: none;
   border-radius: 10px;
-  align-self: center;
-  color: white;
-  background-color: rgb(0, 255, 251);
+  align-self: flex-end;
+  color: rgb(255, 255, 255);
 }
-.btn:hover {
-  background-color: aquamarine;
+.btn-add {
+  background-color: rgb(153, 255, 52);
+}
+.btn-delete {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  padding: 0;
+  background-color: #627e96;
+  margin-bottom: 20px;
+}
+.btn-add,
+.btn-delete:hover {
+  background-color: rgb(255, 119, 81);
   color: rgb(39, 94, 94);
 }
 
-.list {display: flex;
-flex-direction: column;}
-.list-container {
+.task {
   border: 2px solid #3f92fd;
-  max-width: 500px;
-border-radius: 30px;
+  width: 450px;
+  height: 300px;
+  border-radius: 30px;
   padding: 16px;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
   background-color: #f3f3f5;
+  word-wrap: break-word;
 }
 
+.list-task {
+  display: flex;
+  gap: 0;
+}
 .message {
   padding: 10px;
   border-radius: 5px;
-
 }
 
 .message--error {
   background-color: #2e5a6d;
   color: white;
 }
- h3{color: #2d7a75;}
+h3 {
+  color: #2d7a75;
+  margin: 0%;
+}
+p {
+  margin: 0%;
+  margin-bottom: 10px;
+  margin-top: -3px;
+}

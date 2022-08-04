@@ -6,11 +6,11 @@ const Form = ({ state, onChange, children }) => {
   };
 
   return (
-    <div className="task-input">
+    <div className="input">
       <h2>Aggiungi attività</h2>
       <div className="time-section">
         <label>Giorno</label>
-        <input type="date" name="day" onChange={handleChange} />
+        <input type="date" name="day"  onChange={handleChange} />
         <br />
         <label>Ora</label>
         <input type="time" name="hour" onChange={handleChange} />
